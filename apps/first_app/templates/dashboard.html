@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Dashboard</title>
+
+</head>
+<body>
+    <a href="/">Logout</a>
+    <h1>Dojo Activity Center</h1>   
+    <h3>Welcome {{username.name}}!</h3>
+    <b><hr></b>
+    <br>
+    <table style="width:100%">
+        <tr>
+          <th>Activity</th>
+          <th>Date/Time Start</th> 
+          <th>Date/Time End</th>
+          <th>Even Coordinator</th>
+          <th>Number of Participants</th>
+          <th>Actions</th>
+        </tr>
+        
+
+
+        
+            {% for my in activity%}
+        <tr>    
+          <td> <a href="/activity/{{my.id}}"> {{my.title}} </a></td>
+          <td> {{my.from_date}}  </td> 
+          <td> {{my.to_date}}  </td>
+          <td> {{my.creater.name}}  </td>
+          <td> {{my.join.count}}  </td>
+          <td> <a href="/delete/{{my.id}}"> delete </a></td>
+        </tr>
+            {% endfor %}
+
+            
+            
+            {% for them in other %}
+                
+                
+        <tr>    
+            <td> <a href="/activity/{{them.id}}"> {{them.title}} </a></td>
+            <td> {{them.from_date}}  </td> 
+            <td> {{them.to_date}}  </td>
+            <td> {{them.creater.name}}  </td>
+            <td> {{them.join.count}}  </td>
+            <td> <a href="/join/{{them.id}}"> join </a></td>
+            
+        </tr>
+                
+            {% endfor %}
+
+            {% for this in leave %}
+        <tr>    
+            <td> <a href="/activity/{{this.id}}"> {{this.title}} </a></td>
+            <td> {{this.from_date}}  </td> 
+            <td> {{this.to_date}}  </td>
+            <td> {{this.creater.name}}  </td>
+            <td> {{this.join.count}}  </td>
+            <td> <a href="/leave/{{this.id}}"> leave </a></td>
+        </tr>
+            {% endfor %}
+
+                        
+
+    </table>
+    <br>
+    <br>
+    <br>
+
+        <a href="/new">Add New Activity!</a>
+
+</body>
+</html>

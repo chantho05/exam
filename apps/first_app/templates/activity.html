@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Activity</title>
+ 
+</head>
+<body>
+        <a href="/">Logout</a>
+        <a href="/dashboard">Home</a>
+        <h1>Dojo Activity Center</h1>   
+        <b><hr></b>
+        <br>
+        <br>
+        <h1> {{activity.title}} </h1>
+
+        <h2>Event Coordinator: {{activity.creater.name}}</h2>
+        <br>
+        <h2>Description: {{activity.description}}</h2>
+        <br>
+        <h2>Participants:</h2>
+
+
+        {% for join in activity.join.all %}
+
+            {{join.name}}<br>
+
+            {% endfor %}
+
+            <h3><a href="/join/{{activity.id}}">Join</a></h3>
+
+        
+
+        
+      
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>New Activity</title>
+
+</head>
+<body>
+        <a href="/">Logout</a>
+        <a href="/dashboard">Home</a>
+        <h1>Dojo Activity Center</h1>   
+        <b><hr></b>
+        <br>
+        <br>
+        <h1>Create an Activity!</h1>
+        
+
+
+        <form action="/added", method="POST">
+                {% csrf_token %}
+        <h2>Title: <input type="text" name="title"> </h2>
+        <h2>Start Date/Time: <input type="datetime-local" name="from_date"></h2>
+        <h2>End Date/Time: <input type="datetime-local" name="to_date"></h2>
+        <h2>Description: <input type="text" name="description"></h2>
+        
+        <input type="submit" value="Create Activity">
+
+        </form>
+    
+</body>
+</html>
